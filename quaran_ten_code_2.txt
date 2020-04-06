@@ -1,0 +1,30 @@
+int countNodes(ListNode *head){
+    int c=0;
+    while(head!=NULL){
+        c++;
+        head=head->next;
+    }
+    return c;
+}
+int * stonePath(ListNode *head){
+    int *path, n, i, max;
+    ListNode *t;
+    n=countNodes(head);
+    path=(int *)malloc(sizeof(int)*n);
+    i=0;
+    while(head!=NULL){
+        max=head->val;
+        t=head->next;
+        while(t!=NULL){
+            if(max<t->val){
+                max=t->val;
+            }
+            t=t->next;
+        }
+        if(max==head->val)
+            max=0;
+        path[i++]=max;
+        head=head->next;
+    }
+    return path;
+}
