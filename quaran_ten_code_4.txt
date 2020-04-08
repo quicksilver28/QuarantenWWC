@@ -2,7 +2,7 @@
 #include<stdlib.h>
 int * signalRanges(int *h, int n){
     int i, j, *range;
-    range=(int *)calloc(n, sizeof(int));
+    range=(int *)malloc(sizeof(int)*n);
     for(i=n-1;i>=0;i--){
         for(j=i-1;j>=0;j--){
             if(h[j]>h[i])
